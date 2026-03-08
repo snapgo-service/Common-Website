@@ -45,7 +45,7 @@ async function verifySession(request: NextRequest): Promise<boolean> {
   return timingSafeEqual(calculatedHash, storedTokenHash)
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname
 
   // Normalize path - remove trailing slash for comparison
