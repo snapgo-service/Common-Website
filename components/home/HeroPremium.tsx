@@ -123,7 +123,7 @@ export function HeroPremium({ hero, heroMockupUrl }: HeroPremiumProps = {}) {
               <div className="relative w-[230px] xs:w-[260px] sm:w-[290px] md:w-[310px] lg:w-[290px] xl:w-[330px]">
                 <Image
                   src={mockupUrl}
-                  alt="SnapGo App"
+                  alt="Snapgo App"
                   width={330}
                   height={672}
                   className="w-full h-auto drop-shadow-2xl relative z-10"

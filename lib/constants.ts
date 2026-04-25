@@ -214,8 +214,8 @@ export const MAIN_NAV: NavEntry[] = [
   {
     label: 'Services',
     items: [
-      { href: '/snapride', label: 'SnapGo Shared Rides', description: 'Daily shuttle from ₹80/seat' },
-      { href: '/snapair', label: 'SnapGo Airport Cabs', description: 'Delhi IGI T1, T2 & T3 — 50% off' },
+      { href: '/snapride', label: 'Snapgo Shared Rides', description: 'Daily shuttle from ₹80/seat' },
+      { href: '/snapair', label: 'Snapgo Airport Cabs', description: 'Delhi IGI T1, T2 & T3 — 50% off' },
       { href: '/schedule-ride', label: 'Schedule Ride', description: 'Plan ahead. Lock in savings.' },
       { href: '/realtime-ride', label: 'Realtime Ride', description: 'Match instantly. Ride now.' },
       { href: '/outstation-cabs', label: 'Outstation Cabs', description: 'Intercity travel made affordable' },

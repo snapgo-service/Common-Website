@@ -163,7 +163,7 @@ export default function OutstationCabsClient() {
             className="text-center mb-10"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
-              Why SnapGo is <span className="text-primary">Better</span>
+              Why Snapgo is <span className="text-primary">Better</span>
             </h2>
           </motion.div>
 
@@ -177,7 +177,7 @@ export default function OutstationCabsClient() {
               <thead>
                 <tr>
                   <th className="px-4 py-3 bg-red-50 text-red-700 font-semibold rounded-tl-xl text-sm">What Others Do</th>
-                  <th className="px-4 py-3 bg-emerald-50 text-emerald-700 font-semibold rounded-tr-xl text-sm">What SnapGo Does</th>
+                  <th className="px-4 py-3 bg-emerald-50 text-emerald-700 font-semibold rounded-tr-xl text-sm">What Snapgo Does</th>
                 </tr>
               </thead>
               <tbody>

@@ -43,7 +43,7 @@ export function CTASection({ appLinks }: CTASectionProps) {
               Start saving on every ride.
             </h2>
             <p className="text-lg text-white/80 mb-10 max-w-lg mx-auto">
-              Download SnapGo. Verify with Aadhaar. Book your first shared ride in under 2 minutes.
+              Download Snapgo. Verify with Aadhaar. Book your first shared ride in under 2 minutes.
             </p>
 
             {/* App store buttons */}

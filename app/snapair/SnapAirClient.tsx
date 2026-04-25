@@ -25,9 +25,9 @@ const steps = [
     step: 1,
     title: 'Select Airport Cabs',
     description:
-      'Open the SnapGo app and go to the Services tab. Tap on "Airport Cabs" to start your booking.',
+      'Open the Snapgo app and go to the Services tab. Tap on "Airport Cabs" to start your booking.',
     image: '/images/services/1.jpeg',
-    alt: 'SnapGo app services hub showing Airport Cabs option',
+    alt: 'Snapgo app services hub showing Airport Cabs option',
   },
   {
     step: 2,
@@ -74,7 +74,7 @@ export default function SnapAirClient() {
   return (
     <SiteLayout>
       <PageHero
-        badge="SnapGo Airport Cabs"
+        badge="Snapgo Airport Cabs"
         title="Airport Cabs"
         titleHighlight="Made Easy"
         description="Affordable airport pickups & drops to Delhi IGI T1, T2 & T3. Shared or private. Driver confirmed 24 hours before your pickup."
@@ -209,7 +209,7 @@ export default function SnapAirClient() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
-              Why SnapGo Airport Cabs
+              Why Snapgo Airport Cabs
             </h2>
           </motion.div>
 
@@ -243,7 +243,7 @@ export default function SnapAirClient() {
             Flying Soon? Book Your Airport Cab.
           </h2>
           <p className="text-white/70 mb-8 max-w-lg mx-auto text-lg">
-            Download SnapGo and save 50% on your next airport transfer.
+            Download Snapgo and save 50% on your next airport transfer.
           </p>
           <Button size="lg" className="bg-white text-[#0e4493] hover:bg-gray-50 rounded-xl h-14 px-8 font-semibold" asChild>
             <Link href="/#download">

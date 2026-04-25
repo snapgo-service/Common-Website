@@ -18,7 +18,7 @@ interface Service {
 
 const services: Service[] = [
   {
-    name: 'SnapGo Shared Rides',
+    name: 'Snapgo Shared Rides',
     description: 'Share commercial cabs with verified riders heading your way. Save up to 75% on every trip.',
     icon: Users,
     accent: 'bg-[#0e4493]',
@@ -27,7 +27,7 @@ const services: Service[] = [
     link: '/snapride',
   },
   {
-    name: 'SnapGo Airport Cabs',
+    name: 'Snapgo Airport Cabs',
     description: 'Affordable airport pickups & drops to Delhi IGI T1, T2 & T3. Shared or private options.',
     icon: Plane,
     accent: 'bg-orange-500',
