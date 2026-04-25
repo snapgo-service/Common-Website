@@ -195,6 +195,46 @@ export const NAV_LINKS = [
   { href: '/safety', label: 'Safety' },
 ]
 
+export interface NavItem {
+  href: string
+  label: string
+  description?: string
+}
+
+export interface NavGroup {
+  label: string
+  items: NavItem[]
+}
+
+export type NavEntry = NavItem | NavGroup
+
+export const isNavGroup = (entry: NavEntry): entry is NavGroup => 'items' in entry
+
+export const MAIN_NAV: NavEntry[] = [
+  {
+    label: 'Services',
+    items: [
+      { href: '/snapride', label: 'SnapGo Shared Rides', description: 'Daily shuttle from ₹80/seat' },
+      { href: '/snapair', label: 'SnapGo Airport Cabs', description: 'Delhi IGI T1, T2 & T3 — 50% off' },
+      { href: '/schedule-ride', label: 'Schedule Ride', description: 'Plan ahead. Lock in savings.' },
+      { href: '/realtime-ride', label: 'Realtime Ride', description: 'Match instantly. Ride now.' },
+      { href: '/outstation-cabs', label: 'Outstation Cabs', description: 'Intercity travel made affordable' },
+    ],
+  },
+  {
+    label: 'Company',
+    items: [
+      { href: '/about', label: 'About Us', description: 'Our story and mission' },
+      { href: '/team', label: 'Team', description: 'Meet the founders' },
+      { href: '/safety', label: 'Safety', description: 'How we protect every rider' },
+      { href: '/greencalculator', label: 'Green Impact', description: 'Your CO2 savings' },
+    ],
+  },
+  { href: '/blog', label: 'Blog' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
+]
+
 export const TEAM_MEMBERS = [
   { name: 'Mohit Purohit', role: 'Founder & CTO', details: 'Serial entrepreneur with experience building, scaling, and selling mobile applications. Drives product development and technology strategy for Snapgo.', linkedin: 'https://www.linkedin.com/in/mohitpurohitbr/', imageUrl: '/images/team/mohit.png', order: 1 },
   { name: 'Surya Purohit', role: 'Co-Founder & CEO', details: 'Digital marketing specialist expert in Meta Ads, Google Ads, and performance marketing. Drives growth and strategic partnerships.', linkedin: 'https://www.linkedin.com/in/snapgosurya/', imageUrl: '/images/team/surya.png', order: 2 },
