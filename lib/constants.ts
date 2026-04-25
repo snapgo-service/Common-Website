@@ -189,12 +189,6 @@ export const INDIAN_CITIES = [
   { name: 'Greater Noida', lat: 28.4744, lng: 77.504 },
 ]
 
-export const NAV_LINKS = [
-  { href: '/#services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/safety', label: 'Safety' },
-]
-
 export interface NavItem {
   href: string
   label: string

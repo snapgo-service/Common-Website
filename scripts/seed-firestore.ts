@@ -26,7 +26,8 @@ import {
   TEAM_MEMBERS,
   SAFETY_FEATURES,
   JOURNEY_TIMELINE,
-  NAV_LINKS,
+  MAIN_NAV,
+  isNavGroup,
 } from '../lib/constants'
 
 import { DEFAULT_IMAGES } from '../lib/types/images'
@@ -369,7 +370,11 @@ async function seedJourneyTimeline(adapter: FirestoreAdapter): Promise<void> {
 async function seedNavigation(adapter: FirestoreAdapter): Promise<void> {
   console.log('Seeding navigation (header + footer)...')
 
-  const headerOps = NAV_LINKS.map((link, index) => ({
+  const headerLinks = MAIN_NAV.flatMap((entry) =>
+    isNavGroup(entry) ? entry.items.map(({ href, label }) => ({ href, label })) : [{ href: entry.href, label: entry.label }]
+  )
+
+  const headerOps = headerLinks.map((link, index) => ({
     path: getDocPath(getCollectionPath('navigation'), `link_${index}`),
     data: { ...link, order: index, isActive: true, location: 'header', updatedAt: new Date().toISOString() },
   }))
