@@ -3,10 +3,6 @@ import { requireAuth } from '@/lib/api-auth'
 import { getServerDb, getServerAppId, doc, getDoc } from '@/lib/firebase-server'
 import { createAchievementSchema, validateBody } from '@/lib/validations'
 
-export function generateStaticParams() {
-  return []
-}
-
 interface RouteParams {
   params: Promise<{ id: string }>
 }

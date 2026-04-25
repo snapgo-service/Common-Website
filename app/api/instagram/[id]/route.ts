@@ -2,10 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { requireAuth } from '@/lib/api-auth'
 import { getServerDb, getServerAppId, doc, getDoc } from '@/lib/firebase-server'
 
-export function generateStaticParams() {
-  return []
-}
-
 interface RouteParams {
   params: Promise<{ id: string }>
 }

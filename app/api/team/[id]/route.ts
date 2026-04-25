@@ -8,11 +8,6 @@ import {
 import { DEFAULT_TEAM, TeamMemberData } from '@/lib/content'
 import { createTeamMemberSchema, validateBody } from '@/lib/validations'
 
-// Required for static export - returns empty array (API routes won't work on static hosting)
-export function generateStaticParams() {
-  return []
-}
-
 // GET - Fetch a single team member from Firestore
 export async function GET(
   req: NextRequest,

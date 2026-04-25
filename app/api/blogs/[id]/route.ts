@@ -12,11 +12,6 @@ import {
 import { sanitizeSlug } from '@/lib/utils'
 import { updateBlogSchema, validateBody } from '@/lib/validations'
 
-// Required for static export
-export function generateStaticParams() {
-  return []
-}
-
 interface RouteParams {
   params: Promise<{ id: string }>
 }
