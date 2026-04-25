@@ -1,9 +1,27 @@
 import * as admin from 'firebase-admin'
 
+let initFailed = false
+
+function parseServiceAccount(raw: string): Record<string, unknown> {
+  const parsed = JSON.parse(raw)
+  // Common pitfall when pasting into env-var UIs (Vercel, Docker, etc.):
+  // private_key gets double-escaped — literal "\\n" instead of "\n".
+  // Auto-correct so PEM parsing doesn't reject an otherwise valid key.
+  if (typeof parsed.private_key === 'string' && parsed.private_key.includes('\\n')) {
+    parsed.private_key = parsed.private_key.replace(/\\n/g, '\n')
+  }
+  return parsed
+}
+
 function getApp(): admin.app.App | null {
   // Reuse existing app if already initialized (survives Next.js hot-reload)
   if (admin.apps.length > 0) {
     return admin.app()
+  }
+
+  // Don't keep retrying after a failed init — first call already logged the cause.
+  if (initFailed) {
+    return null
   }
 
   const serviceAccountKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY
@@ -12,16 +30,17 @@ function getApp(): admin.app.App | null {
       '[firebase-admin] FIREBASE_SERVICE_ACCOUNT_KEY not configured. ' +
       'Server-side operations (uploads, token verification) are disabled.'
     )
+    initFailed = true
     return null
   }
 
   try {
-    const serviceAccount = JSON.parse(serviceAccountKey)
+    const serviceAccount = parseServiceAccount(serviceAccountKey)
     const storageBucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
 
     try {
       admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
+        credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
         storageBucket: storageBucket,
       })
       console.log('[firebase-admin] ✅ Initialized successfully with storage bucket:', storageBucket)
@@ -34,7 +53,15 @@ function getApp(): admin.app.App | null {
     }
     return admin.app()
   } catch (error) {
-    console.error('[firebase-admin] ❌ Failed to initialize:', error)
+    console.error(
+      '[firebase-admin] ❌ Failed to initialize. Server-side ops disabled until fixed.\n' +
+      '  Check FIREBASE_SERVICE_ACCOUNT_KEY env var:\n' +
+      '  - Must be valid JSON (try: echo "$FIREBASE_SERVICE_ACCOUNT_KEY" | jq .)\n' +
+      '  - private_key needs \\n escapes, not raw newlines (or escape them yourself)\n' +
+      '  Original error:',
+      error
+    )
+    initFailed = true
     return null
   }
 }
