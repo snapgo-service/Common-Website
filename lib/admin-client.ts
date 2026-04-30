@@ -48,6 +48,30 @@ export const teamAPI = {
   delete: (id: string) => apiFetch<void>(`/api/team/${id}`, { method: 'DELETE' }),
 }
 
+// Galgotia cab-pool signup submissions
+export interface GalgotiaSubmission {
+  id: string
+  email: string
+  fullName: string
+  phone: string
+  dailyTravel: string
+  pickupTime: string
+  pickupTimeOther?: string
+  returnTime: string
+  returnTimeOther?: string
+  currentTravel: string
+  interested: string
+  submittedAt: string | null
+  userAgent?: string
+  ipHash?: string
+}
+
+export const galgotiaAPI = {
+  list: () => apiFetch<{ submissions: GalgotiaSubmission[] }>('/api/admin/submissions/galgotia'),
+  delete: (id: string) =>
+    apiFetch<{ success: true }>(`/api/admin/submissions/galgotia/${id}`, { method: 'DELETE' }),
+}
+
 // Blog operations
 export const blogAPI = {
   list: () => apiFetch<any[]>('/api/blogs'),

@@ -15,6 +15,7 @@ import {
   Home,
   Hash,
   Instagram,
+  Inbox,
   User,
   Menu,
   X,
@@ -34,6 +35,7 @@ const navLinks = [
   { href: '/admin/blogs', icon: FileText, label: 'Blogs' },
   { href: '/admin/numbers', icon: Hash, label: 'Numbers' },
   { href: '/admin/instagram', icon: Instagram, label: 'Instagram' },
+  { href: '/admin/submissions/galgotia', icon: Inbox, label: 'Galgotia Signups' },
 ]
 
 export default function AdminLayout({
